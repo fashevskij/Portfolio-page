@@ -1,11 +1,12 @@
 <template>
-  <div class="row mt-5">
-    <div class="card m-2" style="width: 18rem;" v-for="card in cards">
-      <img src="" class="card-img-top" alt="...">
+  <div class="row mt-4">
+    <div class="card m-4 cards" v-for="(card,index) in cards" @click="card.showTitle = !card.showTitle">
+      <img v-if="card.showTitle" :src="getImgUrl(card.image)" class="card-img-top img" alt="...">
+      <div v-else>
+      <p class="card-text">{{card.text}}</p>
+        <button class="btn btn-dark">{{card.btn}}</button>
+      </div>
       <div class="card-body">
-        <h5 class="card-title">{{ card.title }}</h5>
-        <p class="card-text">{{ card.text }}</p>
-        <a href="#" class="btn btn-primary">{{ card.btn }}</a>
       </div>
     </div>
   </div>
@@ -15,42 +16,63 @@
 export default {
   data() {
     return {
-      cards:[
+      cards: [
         {
           title: "1",
-          photo: '',
-          text: '1',
-          btn: '1',
+          image: "samsungS10.jpg",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          btn: "1",
+          showTitle: true,
         },
         {
           title: "2",
-          photo: '',
-          text: '2',
-          btn: '2',
+          image: "note-10lite.jpg",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          btn: "2",
+          showTitle: true,
         },
         {
           title: "3",
-          photo: '',
-          text: '3',
-          btn: '3',
+          image: "s20ultra.jpg",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          btn: "3",
+          showTitle: true,
         },
         {
           title: "4",
-          photo: '',
-          text: '4',
-          btn: '4',
+          image: "galaxya71.jpg",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          btn: "4",
+          showTitle: true,
         },
         {
           title: "5",
-          text: '5',
-          btn: '5',
+          image: "note-10lite.jpg",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          btn: "5",
+          showTitle: true,
         }
       ]
     }
+  },
+  methods: {
+    getImgUrl(image) {
+      return require('../assets/' + image);
+    },
   }
+
 }
 </script>
 
 <style scoped>
-
+.cards {
+  width: 18rem;
+  border-radius: 20px;
+  background-color: bisque;
+  cursor: pointer;
+}
+.img {
+  margin-top: 20px;
+  border-radius: 10px;
+}
 </style>

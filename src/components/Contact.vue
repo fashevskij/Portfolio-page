@@ -1,12 +1,27 @@
 <template>
-<div>
-  page 3
+<div class="row">
+  <AppInput/>
+  <div class="col">
+    <GoogleMap :name="name" />
+  </div>
 </div>
+
 </template>
 
-<script>
-export default {
 
+<script>
+import GoogleMap from '@/components/Maps.vue'
+import AppInput from '@/components/Input.vue'
+export default {
+  components: {
+    AppInput,
+    GoogleMap
+  },
+  data() {
+    return {
+      name: 'map'
+    }
+  }
 }
 </script>
 

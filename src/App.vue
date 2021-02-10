@@ -1,30 +1,65 @@
 <template>
-  <div id="app" class="container">
+  <div id="app">
     <div id="nav" class="navbar navbar-light">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/contact">Contact</router-link>
-      <router-link to="/portfolio">Portfolio</router-link>
+      <div class="mx-4">
+        <router-link v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation"> {{obj.name}}</router-link>
+      </div>
     </div>
-    <router-view class="v"/>
+    <router-view/>
+    <AppFooter/>
   </div>
 </template>
 
+<script>
+import AppFooter from '@/components/Footer'
+export default {
+  components: {
+    AppFooter
+  },
+  data() {
+    return {
+      btn: [
+        {
+          name: 'Главная',
+          key: 'home',
+          linkTo: '/'
+        },
+        {
+          name: 'about',
+          key: 'about',
+          linkTo: '/about'
+        },
+        {
+          name: 'portfolio',
+          key: 'portfolio',
+          linkTo: '/portfolio'
+        },
+        {
+          name: 'Contact',
+          key: 'contact',
+          linkTo: '/contact'
+        }
+      ]
+    }
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: darkslategrey;
   border-radius: 20px;
   padding: 20px;
+  background: #1cfff8;
 }
 
-#nav {
-  padding: 30px;
 
+#nav {
+  padding: 10px;
   border-radius: 20px;
+  background: aliceblue;
 }
 
 #nav a {
@@ -32,6 +67,7 @@
   font-size: x-large;
   color: #009178;
   text-decoration: none;
+
 }
 
 #nav a.router-link-exact-active {
@@ -39,5 +75,8 @@
 }
 .navbar {
   background-color: #1cfff8;
+}
+.navigation {
+  margin-left: 20px;
 }
 </style>
