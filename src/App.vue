@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
-    <div id="nav" class="navbar navbar-light">
-      <div class="mx-4">
-        <router-link v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation"> {{obj.name}}</router-link>
+  <div id="app" class="container" @onresize="">
+    <div id="nav" class="navbar navbar-light" v-if="itemSize > 570">
+      <div class="mx-4" >
+        <router-link  v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation"> {{obj.name}}</router-link>
       </div>
     </div>
+
     <router-view/>
     <AppFooter/>
   </div>
@@ -18,6 +19,7 @@ export default {
   },
   data() {
     return {
+      itemSize: 0,
       btn: [
         {
           name: 'Главная',
@@ -25,23 +27,31 @@ export default {
           linkTo: '/'
         },
         {
-          name: 'about',
-          key: 'about',
-          linkTo: '/about'
-        },
-        {
-          name: 'portfolio',
+          name: 'Мои работы',
           key: 'portfolio',
           linkTo: '/portfolio'
         },
         {
-          name: 'Contact',
+          name: 'Контакты',
           key: 'contact',
           linkTo: '/contact'
         }
       ]
     }
-  }
+  },
+
+  methods: {
+    onResize() {
+      this.itemSize = document.documentElement.clientWidth;
+    },
+  },
+  created() {
+    window.addEventListener('resize', this.onResize);
+    this.onResize();
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
+  },
 }
 </script>
 <style>
@@ -52,14 +62,14 @@ export default {
   text-align: center;
   border-radius: 20px;
   padding: 20px;
-  background: #1cfff8;
+  background: #efeeff;
 }
 
 
 #nav {
   padding: 10px;
   border-radius: 20px;
-  background: aliceblue;
+  background: ivory;
 }
 
 #nav a {
@@ -79,4 +89,6 @@ export default {
 .navigation {
   margin-left: 20px;
 }
+
+
 </style>

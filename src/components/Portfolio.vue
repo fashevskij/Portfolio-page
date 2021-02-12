@@ -68,7 +68,7 @@ export default {
 .cards {
   width: 18rem;
   border-radius: 20px;
-  background-color: bisque;
+  background-color: ivory;
   cursor: pointer;
 }
 .img {

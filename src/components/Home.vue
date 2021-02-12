@@ -1,17 +1,21 @@
 <template>
   <div class="row container">
-    <div class="card g-2" style="width: 18rem;">
-      <img src="../assets/wood-336589_1920.jpg" class="card-img-top img" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"></h5><hr>
-        <h5 class="card-title">мобильный</h5><hr>
-        <h5 class="card-title">эмайл</h5><hr>
-        <h5 class="card-title">скайп</h5><hr>
-      </div>
+    <div class="col-lg-3 col-12 mx-auto cards">
+      <img src="../assets/20210204_180854-removebg-preview.png" class="card-img-top img" alt="...">
+      <a href="" class="buttons">Скачать резюме</a>
     </div>
-    <div class="col-9 info">
-      <p>Нахожусь в процессе изучения Английского языка, и фреймворка Laravel.
-        Веду активный образ жизни, вредных привычек не имею.</p>
+    <div class="col-lg-8 col-12 mx-auto info">
+      <h3>Привет, меня зовут Андрей.</h3>
+      <h5>Я начинающий веб-разработчик</h5>
+      <hr>
+      <p>Мои навыки:</p>
+      <span>- HTML, CSS, SASS, SCSS, Bootstrap <br>
+            - Адаптивная верстка <br>
+            - Javascript, Vue js <br>
+            - PHP, MySQL <br>
+            - Photoshop, Avocode, Figma <br>
+            - Git <br>
+            - Уровень Английского elementary </span>
     </div>
   </div>
 </template>
@@ -24,10 +28,48 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+span {
+  text-align: left;
+  display: block;
+}
+.cards {
+  margin-top: 20px;
+  max-height: 380px;
+  width: 18rem;
+
+  display: block;
+
+}
 .img {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 .info {
-  font-size: 30px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.buttons {
+  text-decoration: none;
+  display: inline-block;
+  width: 140px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 0 auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 600;
+  color: #524f4e;
+  background: #efeeff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.buttons:hover {
+  background: #2EE59D;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
 }
 </style>

@@ -12,7 +12,7 @@
         <label class="form-label"></label>
         <textarea id="message" name="your-message" placeholder="MESSAGE" class="form-control"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
 </template>
 
@@ -25,5 +25,8 @@ export default {
 <style scoped>
 form {
   margin-top: 30px;
+}
+textarea {
+  height: 160px;
 }
 </style>

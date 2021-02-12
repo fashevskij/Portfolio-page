@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="google-map" :id="name"></div>
+    <div class="google-map col" :id="name"></div>
   </div>
 </template>
 ,
@@ -30,7 +30,7 @@ export default {
     /*eslint-disable */
     const element = document.getElementById(this.name)
     const options = {
-      zoom: 12,
+      zoom: 11,
       center: new google.maps.LatLng(48.47951287159899, 35.00172378654487)
     }
     this.map = new google.maps.Map(element, options)
@@ -50,8 +50,8 @@ export default {
 
 <style scoped>
 .google-map {
-  width: 640px;
-  height: 480px;
+  width: 100%;
+  height: 400px;
   margin: 20px auto;
   background: gray;
 }
