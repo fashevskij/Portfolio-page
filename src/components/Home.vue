@@ -1,8 +1,8 @@
 <template>
   <div class="row container">
     <div class="col-lg-3 col-12 mx-auto cards">
-      <img src="../assets/20210204_180854-removebg-preview.png" class="card-img-top img" alt="...">
-      <a href="" class="buttons">Скачать резюме</a>
+      <img src="../assets/photoCV.png" class="card-img-top img" alt="...">
+      <a href="https://doc-0g-3c-docs.googleusercontent.com/docs/securesc/2nfim09q1ktki11fteot3hssuhd4s27i/l8arcbhni2d26rqd6q0eas23ptuvjbbo/1613388525000/02736641227038954949/02736641227038954949/1qvuyAmzuXPi2zsHHJHmznFTkrF208Nxk?e=download&authuser=0&nonce=6rjfa5phclt44&user=02736641227038954949&hash=b2porcqjap4tcr7m6g2r5kthssvick9t" class="buttons">Скачать резюме</a>
     </div>
     <div class="col-lg-8 col-12 mx-auto info">
       <h3>Привет, меня зовут Андрей.</h3>
@@ -42,6 +42,8 @@ span {
 }
 .img {
   margin-top: 5px;
+  height: 300px;
+  width: 200px;
 }
 .info {
   font-size: 20px;

@@ -4,10 +4,18 @@
       <div class="mx-4" >
         <router-link  v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation"> {{obj.name}}</router-link>
       </div>
-    </div>
 
+    </div>
+    <div v-if="itemSize < 570" id="nav" class="minHeader" >
+      <span @click="show = !show"><img src="@/assets/icons8-menu.png" alt="images">
+      </span>
+
+      <router-link v-if="show" v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation" ><img  @click="show = false" :src="getImgUrl(obj.image)"
+                                                                                                            alt="img"></router-link>
+    </div>
     <router-view/>
     <AppFooter/>
+
   </div>
 </template>
 
@@ -20,27 +28,34 @@ export default {
   data() {
     return {
       itemSize: 0,
+      show: false,
       btn: [
         {
           name: 'Главная',
           key: 'home',
-          linkTo: '/'
+          linkTo: '/',
+          image: 'icons8-home.png'
         },
         {
           name: 'Мои работы',
           key: 'portfolio',
-          linkTo: '/portfolio'
+          linkTo: '/portfolio',
+          image: 'icons8-behance.png'
         },
         {
           name: 'Контакты',
           key: 'contact',
-          linkTo: '/contact'
+          linkTo: '/contact',
+          image: 'icons8-contact.png'
         }
       ]
     }
   },
 
   methods: {
+    getImgUrl(image) {
+      return require('@/assets/' + image);
+    },
     onResize() {
       this.itemSize = document.documentElement.clientWidth;
     },
@@ -67,7 +82,7 @@ export default {
 
 
 #nav {
-  padding: 10px;
+
   border-radius: 20px;
   background: ivory;
 }
@@ -79,7 +94,12 @@ export default {
   text-decoration: none;
 
 }
+.minHeader{
+  margin: 0 auto;
+  position: fixed;
+  z-index: 2;
 
+}
 #nav a.router-link-exact-active {
   color: #42b983;
 }
