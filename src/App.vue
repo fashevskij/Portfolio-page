@@ -7,10 +7,10 @@
 
     </div>
     <div v-if="itemSize < 570" id="nav" class="minHeader" >
-      <span @click="show = !show"><img src="@/assets/icons8-menu.png" alt="images">
+      <span @click="show = !show"><img  class="img" src="@/assets/icons8-menu.png" alt="images">
       </span>
 
-      <router-link v-if="show" v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation" ><img  @click="show = false" :src="getImgUrl(obj.image)"
+      <router-link v-if="show" v-for="obj in btn" :key='obj.key' :to="obj.linkTo" class="navigation" ><img  @click="show = false" class="img" :src="getImgUrl(obj.image)"
                                                                                                             alt="img"></router-link>
     </div>
     <router-view/>
@@ -86,10 +86,12 @@ export default {
   border-radius: 20px;
   background: ivory;
 }
-
 #nav a {
+  font-size: 25px;
+}
+ a {
   font-weight: bold;
-  font-size: x-large;
+  font-size: 15px;
   color: #009178;
   text-decoration: none;
 
@@ -109,6 +111,13 @@ export default {
 .navigation {
   margin-left: 20px;
 }
-
+.img:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
 
 </style>

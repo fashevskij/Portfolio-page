@@ -1,13 +1,14 @@
 <template>
   <div class="row mt-4">
     <div class="card m-4 cards" v-for="(card,index) in cards" @click="card.showTitle = !card.showTitle">
-      <img v-if="card.showTitle" :src="getImgUrl(card.image)" class="card-img-top img" alt="...">
+      <img v-if="card.showTitle" :src="getImgUrl(card.image)" class="card-img-top images" alt="...">
       <div v-else>
-      <p class="card-text">{{card.text}}</p>
-        <button class="btn btn-dark">{{card.btn}}</button>
+        <br>
+      <p class="card-text"><span class="sp">Описание проекта: </span>{{card.text}}</p>
+        <p class="card-text"><span class="sp">Технологии: </span>{{card.lang}}</p>
+        <button class="btn btn-dark" ><a target="_blank" :href="card.btn">Перейти</a></button>
       </div>
-      <div class="card-body">
-      </div>
+
     </div>
   </div>
 </template>
@@ -18,40 +19,61 @@ export default {
     return {
       cards: [
         {
-          title: "1",
-          image: "samsungS10.jpg",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          btn: "1",
+          title: "Uber",
+          image: "screencapture-ube.png",
+          text: "Верстка по макету (пк версия макета и мобильная)",
+          btn: "https://uber.fashevsky.ru/",
+          lang: 'HTML,SCSS,Javascript',
           showTitle: true,
         },
         {
-          title: "2",
-          image: "note-10lite.jpg",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          btn: "2",
+          title: "heart-rate-monitor",
+          image: "screencapture-heart-rate-monitor.png",
+          text: "Верстка по макету (был макет только для пк версии, адаптировал на свое усмотрение)",
+          btn: "https://heart-rate-monitor.fashevsky.ru/",
+          lang: 'HTML, SCSS, Gulp',
           showTitle: true,
         },
         {
-          title: "3",
-          image: "s20ultra.jpg",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          btn: "3",
+          title: "fish-game",
+          image: "screencapture-fish-game.png",
+          text: "Первое знакомство с Javascript. Познакомился в процессе создания игры с DOM деревом",
+          btn: "https://fish-game.fashevsky.ru/",
+          lang: 'Javascript',
           showTitle: true,
         },
         {
-          title: "4",
-          image: "galaxya71.jpg",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          btn: "4",
+          title: "Chat",
+          image: "screencapture-chat.png",
+          text: "Первое знакомство с PHP и базами данных MySql на примере создания чата. ",
+          btn: "https://chat.fashevsky.ru/",
+          lang: 'PHP, MySql, JavaScript',
           showTitle: true,
         },
         {
-          title: "5",
-          image: "note-10lite.jpg",
-          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-          btn: "5",
+          title: "smart-stock",
+          image: "screencapture-smart-stock.png",
+          text: "Первая командная работа на курсах. Идея проекта в том чтобы организовать работу склада. В данной работе реализована возможность разметки склада, прием товара и автоматическое размещение его с учетом габаритов на свободные полки, так же аналогично реализована отправка товара",
+          btn: "https://smart-stock.fashevsky.ru/",
+          lang: 'PHP, MySql, Bootstrap, JavaScript',
           showTitle: true,
-        }
+        },
+        {
+          title: "ncs",
+          image: "screencapture-ncs.png",
+          text: "Реальный заказ на данный момент находиться на паузе. Перенести программу для колеровки краски с пк в веб для доступа с мобильных устройств и пк. Была создана тест версия которая выводит данные о рецептурах для двух клеровочных машин, подсчитывает цену с учетом входящих компонентов",
+          btn: "https://ncs.fashevsky.ru/",
+          lang: 'PHP, MySql, Bootstrap, JavaScript',
+          showTitle: true,
+        },
+        {
+          title: "business-assistant",
+          image: "screencapture-business-assistant.png",
+          text: "Вторая командная работа на курсах. Идея в том чтобы создать подобие интернет магазина с возможностью купить товары и услуги. В данном проекте реализовано автоматическое добавление на google maps, подтверждение регистрации на имейл, оповещение о покупке телеграмм ботом",
+          btn: "http://business-assistant.annazubenko.ru",
+          lang: 'PHP, MySql, Bootstrap, JavaScript',
+          showTitle: true,
+        },
       ]
     }
   },
@@ -66,13 +88,61 @@ export default {
 
 <style scoped>
 .cards {
-  width: 18rem;
+  width: 40%;
   border-radius: 20px;
   background-color: ivory;
   cursor: pointer;
+  height: 300px;
+  overflow-y: scroll;
+  margin-left: 30%;
+
 }
-.img {
-  margin-top: 20px;
+.images {
+  margin: 0 auto;
+  background: yellow;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+.card-text{
+  text-align: center;
+}
+.sp{
+  font-size: 20px;
+  font-weight: bold;
+  color: darkslategrey;
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    width: 80%;
+  }
+}
+.cards::-webkit-scrollbar-thumb {
   border-radius: 10px;
+  background-color:#4caf50d4;
 }
+
+.cards::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.cards::-webkit-scrollbar
+{
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.cards::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #D62929;
+}
+
 </style>
