@@ -6,7 +6,7 @@
         <br>
       <p class="card-text"><span class="sp">Описание проекта: </span>{{card.text}}</p>
         <p class="card-text"><span class="sp">Технологии: </span>{{card.lang}}</p>
-        <button class="btn btn-dark" ><a target="_blank" :href="card.btn">Перейти</a></button>
+        <button class="btn buttons" ><a target="_blank" :href="card.btn">перейти</a></button>
       </div>
 
     </div>
@@ -143,6 +143,9 @@ export default {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
   background-color: #D62929;
+}
+button {
+  height: 56px;
 }
 
 </style>
