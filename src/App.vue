@@ -125,7 +125,7 @@ export default {
   display: inline-block;
   width: 140px;
   height: 45px;
-  line-height: 45px;
+  line-height: 46px;
   border-radius: 45px;
   margin: 0 auto;
   font-family: 'Montserrat', sans-serif;

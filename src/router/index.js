@@ -22,11 +22,7 @@ const routes = [
     name: 'Portfolio',
     component: Portfolio
   },
-  {
-    path: '*',
-    name: 'Home',
-    component: Home
-  },
+
 ]
 
 const router = new VueRouter({

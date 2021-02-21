@@ -3,7 +3,7 @@
     <div class="google-map col" :id="name"></div>
   </div>
 </template>
-,
+
 <script>
 export default {
   name: 'google-map',
@@ -27,7 +27,6 @@ export default {
     }
   },
   mounted: function () {
-    /*eslint-disable */
     const element = document.getElementById(this.name)
     const options = {
       zoom: 11,
@@ -41,7 +40,6 @@ export default {
       marker.position = position
       new google.maps.Marker(marker)
     })
-    /*eslint-enable */
   },
   methods: {
   }

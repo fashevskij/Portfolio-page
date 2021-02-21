@@ -1,16 +1,29 @@
 <template>
-
-  <AppContact/>
-
+  <div class="row">
+      <AppForm/>
+    <div class="col">
+      <GoogleMap :name="name" />
+    </div>
+  </div>
 </template>
 
+
 <script>
-import AppContact from '@/components/Contact.vue'
+import GoogleMap from '@/components/Maps.vue'
+import AppForm from '@/components/Form.vue'
 export default {
   components: {
-    AppContact
+    AppForm,
+    GoogleMap
+  },
+  data() {
+    return {
+      name: 'map'
+    }
   }
 }
 </script>
 
+<style scoped>
 
+</style>
