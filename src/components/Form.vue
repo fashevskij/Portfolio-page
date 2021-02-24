@@ -1,5 +1,9 @@
 <template>
     <form class="col-md-4" @submit.prevent="submitForm">
+      <template v-if="btn === true">
+      <app-modal :name="name" :email="email" :mess="mess"></app-modal>
+      </template>
+      <template v-else>
       <div class="mb-3">
         <label class="form-label"></label>
         <input @blur="$v.name.$touch()"  type="text"  v-model.trim="name" placeholder="NAME" class="form-control" required>
@@ -15,19 +19,23 @@
         <textarea @blur="$v.mess.$touch()"  v-model="mess" placeholder="MESSAGE" class="form-control" required></textarea>
         <div class="invalid" v-if="$v.mess.$invalid">Поле не должно быть пустым</div>
       </div>
-      <button type="submit" class="btn btn-primary buttons" :disabled="$v.$invalid"><span>Отправить</span></button>
-    </form>
+      <button type="submit" class="btn btn-primary buttons" data-bs-toggle="modal" data-bs-target="#exampleModal" :disabled="$v.$invalid" @click="btn = true">Отправить</button>
+</template></form>
 </template>
 
 <script>
 import { email, minLength,maxLength,required} from 'vuelidate/lib/validators'
+import AppModal from '@/components/Modal'
 export default {
-
+components: {
+  AppModal
+},
   data() {
     return {
       name: '',
       email: '',
-      mess: ''
+      mess: '',
+      btn: 'false'
     }
   },
   validations: {
@@ -61,7 +69,7 @@ textarea {
 }
 .buttons {
   margin-top: 10px;
-  height: 40px;
+  height: 36px;
   line-height: 0;
 }
 .buttons span{

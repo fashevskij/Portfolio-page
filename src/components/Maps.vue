@@ -52,5 +52,6 @@ export default {
   height: 400px;
   margin: 20px auto;
   background: gray;
+  border-radius: 3%;
 }
 </style>
