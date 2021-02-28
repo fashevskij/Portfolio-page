@@ -121,13 +121,14 @@ export default {
 }
 
 .buttons {
+
   text-decoration: none;
   display: inline-block;
-  width: 140px;
+  width: 120px;
   height: 45px;
   line-height: 46px;
   border-radius: 45px;
-  margin: 0 auto;
+  margin: 10px auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   text-transform: uppercase;
